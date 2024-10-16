@@ -6,6 +6,7 @@ export const moduleApi ={
         let json = await response.json();
         return json
     },
+    
  
     /* Quadrinho DM */
     adicionarQuadrinho: async(edicao:string,colecao:string,lancamento:string,imagemCapa:string, editora:string, uploadedBy:string) =>{

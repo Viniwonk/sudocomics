@@ -16,6 +16,8 @@ import Editorapage from "./pages/editorapage";
 import Userpage from "./pages/userpage";
 
 import ComicPage from "./pages/comicpage";
+import Resultado from "./pages/resultado";
+import SearchResults from "./pages/resultado";
 
 // Componente para página 404
 const NotFound = () => <h2>Página não encontrada</h2>;
@@ -39,8 +41,9 @@ function App() {
         <Route path="/Avengers" element={<Avengers />} />
         <Route path="/editorapage" element={<Editorapage />} />
         <Route path="/catalogue/:id" element={<ComicPage />} />
-        <Route path="/editorapage/:editora" element={<Editorapage/>} />
-        
+        <Route path="/editorapage/:editora" element={<Editorapage />} />
+
+        <Route path="/search-results" element={<SearchResults />} />
         {/* Rota para página 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
