@@ -1,5 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Luckiest+Guy&display=swap");
 
+.suggestions-list {
+  max-height: 300px;
+  overflow-y: auto;
+  background-color: #2c2b44;
+  position: absolute;
+  z-index: 1000;
+  width: 400px;
+  margin: 0;
+  padding: 38px 0 0 0;
+  top: 33px;
+  list-style: none;
+  border-radius: 22.5px;
+  overflow-y: hidden;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+  color: #f0f0f0;
+}
+
+.suggestions-list li:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.search-button {
+  position: absolute;
+  margin-left: -50px;
+  z-index: 30001;
+  cursor: pointer;
+  height: 45px;
+  width: 45px;
+  opacity: 0;
+}
 body {
   background-color: #0c0c0c;
   /* background: url(../../public/images/bg.webp); */
@@ -60,6 +93,7 @@ body {
 }
 
 .search-bar {
+  position: relative;
   background: url(../images/search.png);
   background-repeat: no-repeat;
   background-position: 97%;
@@ -73,14 +107,15 @@ body {
   font-size: 16px;
   padding-right: 50px;
   outline: none;
+  z-index: 2001;
 }
 
 input:focus {
   transition: outline-color 0.6s;
   color: white;
-  outline-style: solid;
-  outline-width: 1px;
-  outline-color: #ff0;
+  /* outline-style: solid; */
+  /* outline-width: 1px; */
+  /* outline-color: #ff0; */
 }
 
 input::placeholder {

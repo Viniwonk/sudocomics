@@ -7,7 +7,8 @@ import "../../style/App.css";
 import Tape from "../tape/tape";
 // Importações Imagens
 import logo from "../../images/logo.webp";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { link } from "fs";
 
 export default function Header() {
   interface Item {
@@ -18,6 +19,7 @@ export default function Header() {
 
   const [pesquisa, setPesquisa] = useState<string>("");
   const [result, setResult] = useState<Item[]>([]);
+  const [sugestoes, setSugestoes] = useState<Item[]>([]);
   const navigate = useNavigate();
 
   const ListaQuad: Item[] = [
@@ -45,6 +47,7 @@ export default function Header() {
   ];
 
   const handlePesquisa = () => {
+    //necessario mudar para buscar no banco de dados
     const foundItems = ListaQuad.filter((item) =>
       item.name.toLowerCase().includes(pesquisa.toLowerCase())
     );
@@ -52,6 +55,34 @@ export default function Header() {
     navigate("/search-results", { state: { results: foundItems } });
   };
 
+  useEffect(() => {
+    const fetchSuggestions = () => {
+      if (pesquisa) {
+        const matchedSuggestions = ListaQuad.filter((item) =>
+          item.name.toLowerCase().includes(pesquisa.toLowerCase())
+        );
+        setSugestoes(matchedSuggestions);
+      } else {
+        setSugestoes([]);
+      }
+    };
+
+    fetchSuggestions();
+  }, [pesquisa]);
+
+  //usar quando tiver banco de dados
+  /*useEffect(() => {
+    const fetchSugestions = async () => {
+      if (pesquisa) {
+        const response = await fetch("");
+        const data = await response.json();
+        setSugestoes(data);
+      } else {
+        setSugestoes([]);
+      }
+    };
+    fetchSugestions();
+  }, [pesquisa]);*/
   return (
     <div className="head_wrapper">
       <div className="head">
@@ -66,13 +97,28 @@ export default function Header() {
             type="text"
             value={pesquisa}
             onChange={(e) => setPesquisa(e.target.value)}
-            onKeyPress={(e) => {
+            onKeyDown={(e) => {
               if (e.key === "Enter") {
                 handlePesquisa();
               }
             }}
             placeholder="Pesquisar"
           />
+          <button className="search-button" onClick={handlePesquisa}></button>
+          {sugestoes.length > 0 && (
+            <ul className="suggestions-list">
+              {sugestoes.map((suggestion) => (
+                <Link to={`/catalogue/${suggestion.id}`}>
+                  <li
+                    key={suggestion.id}
+                    onClick={() => setPesquisa(suggestion.name)}
+                  >
+                    {suggestion.name}
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          )}
         </div>
         <div className="head_botoes">
           <Link to={"/admlogin"}>
