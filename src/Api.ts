@@ -1,10 +1,24 @@
 export const moduleApi = {
   /* Pesquisa ID */
-
-  pesquisaID: async () => {
-    let response = await fetch("");
-    let json = await response.json();
-    return json;
+  pesquisaID: async (nome: string) => {
+    let response = await fetch(
+      `http://localhost:3001/quadrinhos/resultados-de-busca?nome=${nome}`
+    );
+    try {
+      let json = await response.json();
+      return json;
+    } catch (error) {
+      console.error("Resposta não é JSON", error);
+    }
+  },
+  search: async (term: string) => {
+    const response = await fetch(`/quadrinhos/search?term=${term}`);
+    try {
+      let json = await response.json();
+      return json;
+    } catch (error) {
+      console.error("Resposta não é JSON", error);
+    }
   },
   /* Quadrinho DM */
   adicionarQuadrinho: async (
