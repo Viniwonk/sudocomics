@@ -146,13 +146,13 @@ export const moduleApi = {
   },
 
   /*Admin DM*/
-  adcionarAdmin: async (nome: string, email: string, senha: string) => {
-    let response = await fetch("", {
+  adcionarAdmin: async (NOME: string, EMAIL: string, SENHA: string) => {
+    let response = await fetch("http://localhost:3001/admin", {
       method: "POST",
       body: JSON.stringify({
-        nome,
-        email,
-        senha,
+        NOME,
+        EMAIL,
+        SENHA,
       }),
       headers: { "Content-Type": "application/json" },
     });
@@ -160,12 +160,12 @@ export const moduleApi = {
     console.log(json);
     return json;
   },
-  loginAdmin: async (email: string, senha: string) => {
-    let response = await fetch("", {
+  loginAdmin: async (EMAIL: string, SENHA: string) => {
+    let response = await fetch("http://localhost:3001/admin/login", {
       method: "POST",
       body: JSON.stringify({
-        email,
-        senha,
+        EMAIL,
+        SENHA,
       }),
       headers: { "Content-Type": "application/json" },
     });

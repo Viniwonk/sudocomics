@@ -637,7 +637,6 @@ p {
   width: 90vw;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-around;
   color: white;
   background-color: #000000;
@@ -741,18 +740,18 @@ p {
   /* border: #ffec43 solid 1px; */
   align-items: center;
 }
-.conteiner-loginADM {
+.conteiner-login {
   padding: 10px;
   background-color: #0c0c0c;
   display: flex;
   flex-direction: column;
-  width: 20vw;
+  width: 300px;
   height: 53vh;
   margin: 50px 0 90px 0;
   text-align: center;
   color: white;
   border-radius: 30px;
-  /* border: #ffec43 solid 1px; */
+  border: #ffec43 solid 1px;
   align-items: center;
 }
 
@@ -865,4 +864,113 @@ p {
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* Sombra leve */
 }
 
-/* css editora dc */
+.cadastro-wrapper {
+  padding: 30px;
+  display: flex;
+  background-color: #0c0c0c;
+
+  justify-content: space-around;
+}
+
+.cadastro-box {
+  display: flex;
+  justify-content: center;
+  width: 700px;
+  background-color: #000;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.cadastro-box form {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cadastro-box form h1 {
+  color: white;
+  padding: 30px;
+}
+
+.cadastro-box form p {
+  color: yellow;
+  font-weight: bold;
+}
+
+.Input-Padrão {
+  background-color: #2c2b44;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  font-size: 20px;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 10px;
+  margin: 15px;
+}
+
+.cadastro-button {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 10px;
+  width: 60%;
+  height: 12%;
+  border: none;
+  background-color: #f3f386;
+  cursor: pointer;
+}
+
+.fazerLogin {
+  color: white;
+}
+
+.container-cadastro-geral {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Alinha verticalmente ao centro */
+  height: fit-content; /* Altura da tela inteira */
+  background-color: #0c0c0c; /* Cor de fundo */
+  color: white;
+}
+
+.conteudo-cad-geral {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 750px;
+  background-color: #000; /* Cor de fundo da caixa */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.react-tabs__tab-list {
+  display: flex;
+  justify-content: center; /* Centraliza as abas horizontalmente */
+  margin-bottom: 0 !important; /* Adiciona um espaço abaixo das abas */
+  border: none !important; /* Borda inferior para a aba selecionada */
+}
+
+.react-tabs__tab {
+  background: #2c2b44 !important; /* Cor de fundo padrão das abas */
+  border: none !important; /* Borda inferior para a aba selecionada */
+}
+
+.react-tabs__tab--selected {
+  background: #000 !important; /* Cor de fundo da aba selecionada */
+  color: white !important; /* Cor do texto da aba selecionada */
+  border: none !important; /* Borda inferior para a aba selecionada */
+}
+
+.cadastrar-button {
+  background-color: #f3f386;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

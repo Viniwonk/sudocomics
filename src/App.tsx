@@ -18,9 +18,28 @@ import Userpage from "./pages/userpage";
 import ComicPage from "./pages/comicpage";
 import Resultado from "./pages/resultado";
 import SearchResults from "./pages/resultado";
+import Header from "./components/header/header";
+import Footer from "./components/footer";
 
 // Componente para página 404
-const NotFound = () => <h2>Página não encontrada</h2>;
+const NotFound = () => {
+  return (
+    <div>
+      <Header />
+      <h2
+        style={{
+          color: "white",
+          height: "200px",
+          textAlign: "center",
+          margin: "50px",
+        }}
+      >
+        Página não encontrada
+      </h2>
+      <Footer />
+    </div>
+  );
+};
 
 function App() {
   return (

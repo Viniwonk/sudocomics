@@ -21,12 +21,17 @@ export default function AdmLogin() {
 
   // **API**
 
-  const addQuadrinho = async () => {
-    let json = await moduleApi.loginAdmin(email, senha);
+  const admLogin = async () => {
+    try {
+      let json = await moduleApi.loginAdmin(email, senha);
 
-    if (json.vol) {
-      alert("Login Efetuado");
-    } else {
+      if (json.success) {
+        alert("Login Efetuado");
+      } else {
+        alert("Falha ao fazer o login, tente novamente");
+      }
+    } catch (error) {
+      console.error("Erro no login:", error);
       alert("Falha ao fazer o login, tente novamente");
     }
   };
@@ -60,9 +65,8 @@ export default function AdmLogin() {
                 placeholder="Senha"
                 onChange={loginSenha}
               />
-              <button id="login-button" type="submit" onClick={addQuadrinho}>
-                {" "}
-                Login{" "}
+              <button id="login-button" type="submit" onClick={admLogin}>
+                Login
               </button>
             </div>
           </div>
