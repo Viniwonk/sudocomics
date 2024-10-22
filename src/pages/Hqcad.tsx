@@ -18,7 +18,7 @@ export default function CadHq() {
 
   // **Adição de conteúdo - Autor**
   const [nomeAutor, setNomeAutor] = useState("");
-  const [foto, setFoto] = useState("");
+  const [fotoAutor, setFotoAutor] = useState("");
 
   // **Adição de conteúdo - Coleção**
   const [nomeColecao, setNomeColecao] = useState("");
@@ -45,23 +45,27 @@ export default function CadHq() {
   const cadUsuario = (event: React.ChangeEvent<HTMLInputElement>) => {
     setUsuario(event.target.value);
   };
+
   // **Funções de Cadastro - Autor**
   const cadNomeAutor = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNomeAutor(event.target.value);
   };
+  const cadFotoAutor = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFotoAutor(event.target.value);
+  };
 
-  // ** Funções de Cadastro - Coleção**
+  // **Funções de Cadastro - Coleção**
   const cadNomeColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNomeColecao(event.target.value);
-  };
-  const cadLancamentoColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLancamentoColecao(event.target.value);
   };
   const cadImagemColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
     setImagemColecao(event.target.value);
   };
   const cadSinopseColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSinopseColecao(event.target.value);
+  };
+  const cadLancamentoColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLancamentoColecao(event.target.value);
   };
 
   // **Api**
@@ -89,6 +93,16 @@ export default function CadHq() {
       imagemColecao,
       sinopseColecao
     );
+
+    if (json) {
+      alert("Coleção inserida");
+    } else {
+      alert("Erro ao inserir coleção");
+    }
+  };
+
+  const addAutor = async () => {
+    let json = await moduleApi.adicionarAutor(nomeAutor, fotoAutor);
 
     if (json) {
       alert("Coleção inserida");
@@ -207,11 +221,13 @@ export default function CadHq() {
                 type="text"
                 placeholder="Nome do Autor"
                 className="Input-Padrão"
+                onChange={cadNomeAutor}
               />
               <input
                 type="text"
                 placeholder="URL da imagem"
                 className="Input-Padrão"
+                onChange={cadFotoAutor}
               />
               <button type="button" className="cadastrar-button">
                 Adicionar
