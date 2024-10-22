@@ -11,6 +11,7 @@ export const moduleApi = {
       console.error("Resposta não é JSON", error);
     }
   },
+
   search: async (term: string) => {
     const response = await fetch(`/quadrinhos/search?term=${term}`);
     try {
@@ -90,6 +91,7 @@ export const moduleApi = {
     console.log(json);
     return json;
   },
+
   alteraEditora: async (nome: string, logo: string, quadrinho: string) => {
     let response = await fetch("", {
       method: "POST",
@@ -160,6 +162,7 @@ export const moduleApi = {
     console.log(json);
     return json;
   },
+
   loginAdmin: async (EMAIL: string, SENHA: string) => {
     let response = await fetch("http://localhost:3001/admin/login", {
       method: "POST",
@@ -180,7 +183,7 @@ export const moduleApi = {
     FOTO: string,
     SINOPSE: string
   ) => {
-    let response = await fetch("localhost:3001/colecao", {
+    let response = await fetch("http://localhost:3001/colecao", {
       method: "POST",
       body: JSON.stringify({
         NOME,
@@ -194,4 +197,31 @@ export const moduleApi = {
     console.log(json);
     return json;
   },
+
+  fetchSuggestions: async (term: string) => {
+    try {
+      console.log("Chamando API com termo: ", term);
+      const response = await fetch(
+        `http://localhost:3001/quadrinhos/resultados-de-busca?nome=${term}`
+      );
+      const data = await response.json();
+      console.log("Dados recebidos: ", data);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
+  },
 };
+//       const matchedSuggestions = data.filter((item: Item) =>
+//         item.COLECAO.toLowerCase().includes(term.toLowerCase())
+//       );
+//       setSugestoes(matchedSuggestions);
+//     } catch (error) {
+//       console.error("Erro ao buscar sugestões: ", error);
+//     }
+//   };
+
+//   if (pesquisa) {
+//     fetchSuggestions(pesquisa);
+//   }
+// }, [pesquisa];

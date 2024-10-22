@@ -30,27 +30,13 @@ export default function Header() {
   };
 
   useEffect(() => {
-    const fetchSuggestions = async (term: string) => {
-      setPesquisa(term);
-      try {
-        console.log("Chamando API com termo: ", term);
-        const response = await fetch(
-          `http://localhost:3001/quadrinhos/resultados-de-busca?nome=${term}`
-        );
-        const data = await response.json();
-        console.log("Dados recebidos: ", data);
-        const matchedSuggestions = data.filter((item: Item) =>
-          item.COLECAO.toLowerCase().includes(term.toLowerCase())
-        );
-        setSugestoes(matchedSuggestions);
-      } catch (error) {
-        console.error("Erro ao buscar sugestões: ", error);
-      }
+    const retornaPesquisa = async () => {
+      const json = await moduleApi.fetchSuggestions(pesquisa);
+      const matchedSuggestions = json.filter((item: Item) =>
+        item.COLECAO.toLowerCase().includes(pesquisa.toLowerCase())
+      );
+      setSugestoes(matchedSuggestions);
     };
-
-    if (pesquisa) {
-      fetchSuggestions(pesquisa);
-    }
   }, [pesquisa]);
 
   return (
