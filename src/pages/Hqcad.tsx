@@ -90,10 +90,10 @@ export default function CadHq() {
       sinopseColecao
     );
 
-    if (json.vol) {
-      alert("Quadrinho inserido");
+    if (json) {
+      alert("Coleção inserida");
     } else {
-      alert("Erro ao inserir quadrinho");
+      alert("Erro ao inserir coleção");
     }
   };
 
@@ -190,7 +190,11 @@ export default function CadHq() {
                 className="Input-Padrão"
                 onChange={cadLancamentoColecao}
               />
-              <button type="button" className="cadastrar-button">
+              <button
+                type="button"
+                className="cadastrar-button"
+                onClick={addColecao}
+              >
                 Adicionar
               </button>
             </form>

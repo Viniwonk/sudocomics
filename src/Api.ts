@@ -180,7 +180,7 @@ export const moduleApi = {
     FOTO: string,
     SINOPSE: string
   ) => {
-    let response = await fetch("localhost:3001/colecao", {
+    let response = await fetch("http://localhost:3001/colecao", {
       method: "POST",
       body: JSON.stringify({
         NOME,
