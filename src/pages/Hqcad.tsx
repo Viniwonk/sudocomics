@@ -7,11 +7,6 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 export default function CadHq() {
-  const [activeTab, setActiveTab] = useState("quadrinho");
-  const handleTabClick = (tab: string) => {
-    setActiveTab(tab);
-  };
-
   // **Adição de conteúdo - Quadrinho**
   const [vol, setVol] = useState("");
   const [editora, setEditora] = useState("");
@@ -24,6 +19,12 @@ export default function CadHq() {
   // **Adição de conteúdo - Autor**
   const [nomeAutor, setNomeAutor] = useState("");
   const [foto, setFoto] = useState("");
+
+  // **Adição de conteúdo - Coleção**
+  const [nomeColecao, setNomeColecao] = useState("");
+  const [imagemColecao, setImagemColecao] = useState("");
+  const [sinopseColecao, setSinopseColecao] = useState("");
+  const [lancamentoColecao, setLancamentoColecao] = useState("");
 
   // **Funções de Cadastro - Quadrinho**
   const cadVol = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,6 +50,20 @@ export default function CadHq() {
     setNomeAutor(event.target.value);
   };
 
+  // ** Funções de Cadastro - Coleção**
+  const cadNomeColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNomeColecao(event.target.value);
+  };
+  const cadLancamentoColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLancamentoColecao(event.target.value);
+  };
+  const cadImagemColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setImagemColecao(event.target.value);
+  };
+  const cadSinopseColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSinopseColecao(event.target.value);
+  };
+
   // **Api**
   const addQuadrinho = async () => {
     let json = await moduleApi.adicionarQuadrinho(
@@ -58,6 +73,21 @@ export default function CadHq() {
       imagem,
       editora,
       usuario
+    );
+
+    if (json) {
+      alert("Quadrinho inserido");
+    } else {
+      alert("Erro ao inserir quadrinho");
+    }
+  };
+
+  const addColecao = async () => {
+    let json = await moduleApi.adicionarColecao(
+      nomeColecao,
+      lancamentoColecao,
+      imagemColecao,
+      sinopseColecao
     );
 
     if (json.vol) {
@@ -74,6 +104,7 @@ export default function CadHq() {
         <Tabs>
           <TabList>
             <Tab>Quadrinho</Tab>
+            <Tab>Coleção</Tab>
             <Tab>Autor</Tab>
             <Tab>Editora</Tab>
           </TabList>
@@ -127,6 +158,39 @@ export default function CadHq() {
                 onClick={addQuadrinho}
                 className="cadastrar-button"
               >
+                Adicionar
+              </button>
+            </form>
+          </TabPanel>
+
+          <TabPanel>
+            <form className="conteudo-cad-geral">
+              <h1>Cadastro de Coleção</h1>
+              <input
+                type="text"
+                placeholder="Nome da Coleção"
+                className="Input-Padrão"
+                onChange={cadNomeColecao}
+              />
+              <input
+                type="text"
+                placeholder="URL da imagem"
+                className="Input-Padrão"
+                onChange={cadImagemColecao}
+              />
+              <input
+                type="text"
+                placeholder="Sinopse da coleção"
+                className="Input-Padrão"
+                onChange={cadSinopseColecao}
+              />
+              <input
+                type="text"
+                placeholder="Data de lançamento da coleção"
+                className="Input-Padrão"
+                onChange={cadLancamentoColecao}
+              />
+              <button type="button" className="cadastrar-button">
                 Adicionar
               </button>
             </form>

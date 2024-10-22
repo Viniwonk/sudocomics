@@ -173,4 +173,25 @@ export const moduleApi = {
     console.log(json);
     return json;
   },
+
+  adicionarColecao: async (
+    NOME: string,
+    LANCAMENTO: string,
+    FOTO: string,
+    SINOPSE: string
+  ) => {
+    let response = await fetch("localhost:3001/colecao", {
+      method: "POST",
+      body: JSON.stringify({
+        NOME,
+        LANCAMENTO,
+        FOTO,
+        SINOPSE,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+    let json = await response.json();
+    console.log(json);
+    return json;
+  },
 };
