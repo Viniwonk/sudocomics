@@ -1,116 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/header/header";
 import Footer from "../components/footer";
 import "../style/App.css";
 import { moduleApi } from "../Api";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import CadastroQuadrinhos from "../components/postInputs/Quadrinhos";
+import CadastroColecao from "../components/postInputs/Colecao";
+import CadastroAutor from "../components/postInputs/Autor";
+import CadastroEditora from "../components/postInputs/Editora";
+
+interface Suggestion {
+  ID: string;
+  NOME: string;
+}
 
 export default function CadHq() {
-  // **Adição de conteúdo - Quadrinho**
-  const [vol, setVol] = useState("");
-  const [editora, setEditora] = useState("");
-  const [colecao, setColecao] = useState("");
-  const [imagem, setImagem] = useState("");
-  const [usuario, setUsuario] = useState("");
-  const [lancamento, setLancamento] = useState("");
-  const [autor, setAutor] = useState("");
-
-  // **Adição de conteúdo - Autor**
-  const [nomeAutor, setNomeAutor] = useState("");
-  const [fotoAutor, setFotoAutor] = useState("");
-
-  // **Adição de conteúdo - Coleção**
-  const [nomeColecao, setNomeColecao] = useState("");
-  const [imagemColecao, setImagemColecao] = useState("");
-  const [sinopseColecao, setSinopseColecao] = useState("");
-  const [lancamentoColecao, setLancamentoColecao] = useState("");
-
-  // **Funções de Cadastro - Quadrinho**
-  const cadVol = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setVol(event.target.value);
-  };
-  const cadLancamento = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLancamento(event.target.value);
-  };
-  const cadEditora = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEditora(event.target.value);
-  };
-  const cadColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setColecao(event.target.value);
-  };
-  const cadImagem = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setImagem(event.target.value);
-  };
-  const cadUsuario = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setUsuario(event.target.value);
-  };
-
-  // **Funções de Cadastro - Autor**
-  const cadNomeAutor = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNomeAutor(event.target.value);
-  };
-  const cadFotoAutor = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFotoAutor(event.target.value);
-  };
-
-  // **Funções de Cadastro - Coleção**
-  const cadNomeColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setNomeColecao(event.target.value);
-  };
-  const cadImagemColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setImagemColecao(event.target.value);
-  };
-  const cadSinopseColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSinopseColecao(event.target.value);
-  };
-  const cadLancamentoColecao = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLancamentoColecao(event.target.value);
-  };
-
-  // **Api**
-  const addQuadrinho = async () => {
-    let json = await moduleApi.adicionarQuadrinho(
-      vol,
-      colecao,
-      lancamento,
-      imagem,
-      editora,
-      usuario
-    );
-
-    if (json) {
-      alert("Quadrinho inserido");
-    } else {
-      alert("Erro ao inserir quadrinho");
-    }
-  };
-
-  const addColecao = async () => {
-    let json = await moduleApi.adicionarColecao(
-      nomeColecao,
-      lancamentoColecao,
-      imagemColecao,
-      sinopseColecao
-    );
-
-    if (json) {
-      alert("Coleção inserida");
-    } else {
-      alert("Erro ao inserir coleção");
-    }
-  };
-
-  const addAutor = async () => {
-    let json = await moduleApi.adicionarAutor(nomeAutor, fotoAutor);
-
-    if (json) {
-      alert("Coleção inserida");
-    } else {
-      alert("Erro ao inserir coleção");
-    }
-  };
-
   return (
     <div>
       <Header />
@@ -124,136 +29,19 @@ export default function CadHq() {
           </TabList>
 
           <TabPanel>
-            <form className="conteudo-cad-geral">
-              <h1>Cadastro de quadrinho</h1>
-              <input
-                className="Input-Padrão"
-                type="text"
-                placeholder="Nome da coleção"
-                onChange={cadColecao}
-              />
-              <input
-                type="text"
-                placeholder="Edição"
-                onChange={cadVol}
-                className="Input-Padrão"
-              />
-              <input
-                type="text"
-                className="Input-Padrão"
-                placeholder="Data de Lançamento"
-                onChange={cadLancamento}
-              />
-              <input type="text" placeholder="Autor" className="Input-Padrão" />
-              <input
-                type="text"
-                placeholder="Editora"
-                className="Input-Padrão"
-                onChange={cadEditora}
-              />
-              <input
-                type="text"
-                placeholder="Foto de capa"
-                className="Input-Padrão"
-                onChange={cadImagem}
-              />
-              <input
-                type="text"
-                placeholder="Usuário"
-                className="Input-Padrão"
-                onChange={cadUsuario}
-              />
-              <p style={{ color: "red", textAlign: "start", padding: "10px" }}>
-                *Certifique-se de que as informações tenham vindo do dropdown ao
-                cadastrar
-              </p>
-              <button
-                type="button"
-                onClick={addQuadrinho}
-                className="cadastrar-button"
-              >
-                Adicionar
-              </button>
-            </form>
+            <CadastroQuadrinhos />
           </TabPanel>
 
           <TabPanel>
-            <form className="conteudo-cad-geral">
-              <h1>Cadastro de Coleção</h1>
-              <input
-                type="text"
-                placeholder="Nome da Coleção"
-                className="Input-Padrão"
-                onChange={cadNomeColecao}
-              />
-              <input
-                type="text"
-                placeholder="URL da imagem"
-                className="Input-Padrão"
-                onChange={cadImagemColecao}
-              />
-              <input
-                type="text"
-                placeholder="Sinopse da coleção"
-                className="Input-Padrão"
-                onChange={cadSinopseColecao}
-              />
-              <input
-                type="text"
-                placeholder="Data de lançamento da coleção"
-                className="Input-Padrão"
-                onChange={cadLancamentoColecao}
-              />
-              <button
-                type="button"
-                className="cadastrar-button"
-                onClick={addColecao}
-              >
-                Adicionar
-              </button>
-            </form>
+            <CadastroColecao />
           </TabPanel>
 
           <TabPanel>
-            <form className="conteudo-cad-geral">
-              <h1>Cadastro de autor</h1>
-              <input
-                type="text"
-                placeholder="Nome do Autor"
-                className="Input-Padrão"
-                onChange={cadNomeAutor}
-              />
-              <input
-                type="text"
-                placeholder="URL da imagem"
-                className="Input-Padrão"
-                onChange={cadFotoAutor}
-              />
-              <button type="button" className="cadastrar-button">
-                Adicionar
-              </button>
-            </form>
+            <CadastroAutor />
           </TabPanel>
 
           <TabPanel>
-            <form className="conteudo-cad-geral">
-              <h1>Cadastro de editora</h1>
-              <input
-                type="text"
-                placeholder="Nome da editora"
-                className="Input-Padrão"
-                onChange={cadEditora}
-              />
-              <input
-                type="text"
-                placeholder="URL da logo da editora"
-                className="Input-Padrão"
-                onChange={cadEditora}
-              />
-              <button type="button" className="cadastrar-button">
-                Adicionar
-              </button>
-            </form>
+            <CadastroEditora />
           </TabPanel>
         </Tabs>
       </div>
