@@ -1,40 +1,44 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Header from "../components/header/header";
 import Footer from "../components/footer";
 import "../style/App.css";
 import { useEffect, useState } from "react";
 import { moduleApi } from "../Api";
+import Editorapage from "./editorapage";
 
 interface Quad {
   ID: string;
+  colecao: {
+    NOME: string;
+  };
   NOME: string;
   EDICAO: string;
+  SINOPSE: string;
+  IMAGEM_CAPA: string;
   LANCAMENTO: string;
-  ID_EDITORA: string;
-  ID_AUTOR: string;
+  editora: {
+    NOME: string;
+    LOGO: string;
+  };
+  autor: {
+    NOME: string;
+  };
 }
 
-export default function ComicPage() {
+export default function QuadrinhosPage() {
   const { id } = useParams<{ id: string }>();
-  const [comic, setComic] = useState<Quad[]>([]);
+  const [listaQuadrinho, setListaQuadrinho] = useState<Quad | undefined>();
 
   useEffect(() => {
-    async function fetchComic() {
-      try {
-        const response = await moduleApi.fetchQuadrinho();
-        const data: Quad[] = await response.json();
-        setComic(data);
-      } catch (error) {
-        console.error("Erro ao buscar o quadrinho:", error);
-      }
+    if (id) {
+      console.log(id);
+      // Usar fetchQuadrinho para buscar os dados
+      moduleApi
+        .fetchQuadrinho(id)
+        .then((data) => setListaQuadrinho(data))
+        .catch((error) => console.error("Erro ao buscar quadrinhos:", error));
     }
-
-    fetchComic();
   }, [id]);
-
-  if (comic.length === 0) {
-    return <div>Página não encontrada</div>;
-  }
 
   return (
     <div className="background">
@@ -44,34 +48,43 @@ export default function ComicPage() {
         <div className="main-content">
           {/* Título do quadrinho */}
           <div className="comic-title">
-            <h1>{comic[0].NOME}</h1>
+            <h1>
+              {listaQuadrinho?.colecao.NOME} #{listaQuadrinho?.EDICAO}
+            </h1>
           </div>
           <div className="layout-container">
             {/* Imagem do quadrinho */}
             <div className="comic-image">
               <img
-                src={comic[0].ID}
-                alt={comic[0].NOME}
+                src={listaQuadrinho?.IMAGEM_CAPA}
+                alt={listaQuadrinho?.NOME}
                 className="issue-cover"
               />
             </div>
             {/* Box de informações */}
             <div className="info-box">
+              <div className="logo">
+                <Link to={`/editorapage/${listaQuadrinho?.editora.NOME}`}>
+                  <img width={350} src={listaQuadrinho?.editora.LOGO} alt="" />
+                </Link>
+              </div>
               <h3>Informações</h3>
               <p>
-                <strong>Edição:</strong> {comic[0].EDICAO}
+                <strong>Data de Lançamento:</strong>{" "}
+                {listaQuadrinho?.LANCAMENTO}
               </p>
               <p>
-                <strong>Data de Lançamento:</strong> {comic[0].LANCAMENTO}
+                <strong>Editora:</strong> {listaQuadrinho?.editora.NOME}
               </p>
               <p>
-                <strong>Editora:</strong> {comic[0].ID_EDITORA}
+                <strong>Autor:</strong> {listaQuadrinho?.autor.NOME}
               </p>
               <p>
-                <strong>Autor:</strong> {comic[0].ID_AUTOR}
+                <strong>Sinopse:</strong> {listaQuadrinho?.SINOPSE}
               </p>
             </div>
           </div>
+          <div className="layout-container">{/* Lista de quadrinhos */}</div>
         </div>
       </div>
       <Footer />

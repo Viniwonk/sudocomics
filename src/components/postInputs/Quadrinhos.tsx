@@ -7,6 +7,7 @@ const CadastroQuadrinhos = () => {
   const [editora, setEditora] = useState("");
   const [colecao, setColecao] = useState("");
   const [imagem, setImagem] = useState("");
+  const [sinopse, setSinopse] = useState("");
   const [usuario, setUsuario] = useState("");
   const [lancamento, setLancamento] = useState("");
   const [autor, setAutor] = useState("");
@@ -38,6 +39,7 @@ const CadastroQuadrinhos = () => {
       colecao,
       lancamento,
       imagem,
+      sinopse,
       editora,
       usuario,
       autor
@@ -53,7 +55,7 @@ const CadastroQuadrinhos = () => {
     <form className="conteudo-cad-geral">
       <h1>Cadastro de quadrinho</h1>
       <InputBar
-        url="http://localhost:3001/colecao/resultados-de-busca"
+        url="http://localhost:3001/colecao"
         onSelect={handleSelectColecao}
         onChange={setColecao}
         placeholder="Nome da coleção"
@@ -95,6 +97,15 @@ const CadastroQuadrinhos = () => {
           type="text"
           placeholder="URL da capa"
           onChange={(e) => setImagem(e.target.value)}
+        />
+      </div>
+
+      <div className="input-wrapper" style={{ position: "relative" }}>
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Sinopse"
+          onChange={(e) => setSinopse(e.target.value)}
         />
       </div>
       <InputBar

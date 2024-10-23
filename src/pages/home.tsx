@@ -17,21 +17,19 @@ export default function Home() {
         <Carousel />
         <h1>Quadrinhos em destaque</h1>
         <CatlogCollection></CatlogCollection>
-        </div>
-        <Tape></Tape>
-        <div className="page_content">
-
         <h1>Novas HQs</h1>
         <div className="home_row">
-        <CatlogCollection></CatlogCollection>
+          <CatlogCollection></CatlogCollection>
         </div>
         <ul>
-          <li>
-            <Link to="/catalogue">Catálogo</Link>
-          </li>
+          <h1>
+            <Link to="/catalogue">
+              <button className="butCat">VER MAIS</button>
+            </Link>
+          </h1>
         </ul>
-        </div>
-        <Footer />
       </div>
-  )
+      <Footer />
+    </div>
+  );
 }

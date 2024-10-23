@@ -1,39 +1,31 @@
+import { useEffect, useState } from "react";
 import CatlogComic from "../catlog_comic";
 import { Link } from "react-router-dom";
 
 export default function CatlogCollection() {
-  const ListaQuad = [
-    {
-      id: "dc1",
-      name: "Batman Vol. 2: The Bat-Man of Gotham TP",
-      url: "/quadrinhos/Batman.jpg",
-    },
-    {
-      id: "dc2",
-      name: "Batman / Superman: Worlds Finest #30",
-      url: "/quadrinhos/bbb.jpg",
-    },
-    { id: "mvl1", name: "Phoenix #2", url: "/quadrinhos/Fenix.jpg" },
-    {
-      id: "mvl2",
-      name: "Miles Morales: Spider-Man Annual #1",
-      url: "/quadrinhos/Miles Morales.jpg",
-    },
-    {
-      id: "mvl3",
-      name: "The Incredible Hulk Epic Collection: Ground Zero TP",
-      url: "/quadrinhos/Hulk.jpg",
-    },
-  ];
+  interface Item {
+    ID: string;
+    NOME: string;
+    FOTO: string;
+  }
+
+  const [ListaColecao, setListaColecao] = useState<Item[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3001/colecao")
+      .then((response) => response.json())
+      .then((data) => setListaColecao(data))
+      .catch((error) => console.error("Erro:", error));
+  }, []);
 
   return (
     <div>
       <div className="slider_map">
-        {ListaQuad.map((item) => (
-          <Link to={"catalogue/" + item.id} key={item.id}>
+        {ListaColecao.map((item) => (
+          <Link to={"/colecao/" + item.ID} key={item.ID}>
             <div className="slider_item">
-              <img src={item.url} height={235} alt="placeholder" />
-              <div className="slider_item_content">{item.name}</div>
+              <img src={item.FOTO} height={235} alt="placeholder" />
+              <div className="slider_item_content">{item.NOME}</div>
             </div>
           </Link>
         ))}

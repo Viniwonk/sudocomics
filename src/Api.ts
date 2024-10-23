@@ -67,8 +67,8 @@ export const moduleApi = {
   },
   /* Quadrinho DM */
 
-  fetchQuadrinho: async () => {
-    const response = await fetch(`http://localhost:3001/quadrinhos/`);
+  fetchQuadrinho: async (id: string) => {
+    const response = await fetch(`http://localhost:3001/quadrinhos/${id}`);
     try {
       let json = await response.json();
       return json;
@@ -82,6 +82,7 @@ export const moduleApi = {
     COLECAO: string,
     LANCAMENTO: string,
     IMAGEM_CAPA: string,
+    SINOPSE: string,
     EDITORA: string,
     UPLOADED_BY: string,
     AUTOR: string
@@ -93,6 +94,7 @@ export const moduleApi = {
         COLECAO,
         LANCAMENTO,
         IMAGEM_CAPA,
+        SINOPSE,
         EDITORA,
         UPLOADED_BY,
         AUTOR,
@@ -253,6 +255,51 @@ export const moduleApi = {
     let json = await response.json();
     console.log(json);
     return json;
+  },
+
+  // Editora
+
+  fetchColecoesPorEditora: async (nomeEditora: string) => {
+    const response = await fetch(
+      `http://localhost:3001/colecao/editora/${nomeEditora}`
+    );
+    const data = await response.json();
+    return data;
+  },
+
+  fetchEditora: async (id: string) => {
+    const response = await fetch(`http://localhost:3001/editora/ID-${id}`);
+    try {
+      let json = await response.json();
+      return json;
+    } catch (error) {
+      console.error("Resposta não é JSON", error);
+    }
+  },
+  // Quadrinho
+
+  fetchQuadrinhoByColecao: async (colecaoName: string) => {
+    const response = await fetch(
+      `http://localhost:3001/quadrinhos/colecao/${colecaoName}`
+    );
+    const data = await response.json();
+    return data;
+  },
+
+  // Coleção
+
+  fetchColecao: async (id: string) => {
+    try {
+      const response = await fetch(`http://localhost:3001/colecao/${id}`); // Ajuste a URL conforme necessário
+      if (!response.ok) {
+        throw new Error("Erro ao buscar coleção");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Erro:", error);
+      throw error;
+    }
   },
 };
 //   fetchSuggestions: async (url: string, term: string) => {

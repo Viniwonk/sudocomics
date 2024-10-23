@@ -26,10 +26,7 @@ export default function Carousel() {
             <span>
               <img src={DC} alt="" />
             </span>
-            <Link
-              to="/editorapage/dc_comics"
-              className="car_bannerLinkS"
-            ></Link>
+            <Link to="/editorapage/dc" className="car_bannerLinkS"></Link>
           </div>
         </div>
       </div>

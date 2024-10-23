@@ -1,89 +1,91 @@
 .catlog_page {
-    height: 100%;
-    display: flex;
-  }
-  
-  .catlog_content {
-    display: flex;
-    gap: 2rem;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-      background: linear-gradient(black, rgb(180, 0, 0));
-      /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
-      backdrop-filter: blur(4.1px);
-      /* -webkit-backdrop-filter: blur(4.1px); */
+  height: 100%;
+  display: flex;
+}
 
-    }
-  .colecao_row{
-    display: flex;
-    flex-direction: row;
-  }
-    .slider_colecao {
-    gap: 1rem;
-    display: flex;
-    overflow: visible;
-    flex-direction: row;
-    margin: 10px 0;
-    border-radius: 10%;
-  }
-  .slider_item {
-    padding: 18px 7px 0px 7px;
-    display: flex;
-    gap: 2rem;
-    flex-direction: column;
-    align-items: center;
-    transition: 0.3s;
-    border-radius: 25px;
-    min-height: 330px;
+.catlog_content {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(black, rgba(7, 1, 98, 0.491));
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+  backdrop-filter: blur(4.1px);
+  /* -webkit-backdrop-filter: blur(4.1px); */
+}
+.colecao_row {
+  display: flex;
+  flex-direction: row;
+}
+.slider_colecao {
+  gap: 1rem;
+  display: flex;
+  overflow: visible;
+  flex-direction: row;
+  margin: 10px 0;
+  border-radius: 10%;
+}
+.slider_item {
+  padding: 18px 7px 0px 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s;
+  border-radius: 25px;
+  min-height: 330px;
+  color: white;
+  font-size: 25px;
+  font-weight: "bold";
 
-    /* From https://css.glass */
-    background: rgba(181, 139, 106, 0.364);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(0, 0, 0, 0.323);
-  }
-  .slider_item:hover {
-    flex: auto;
-    transition: 0.3s;
-    transform: scale(1.04);
-    margin: 0 ;
-    filter: drop-shadow(0 0 10px rgb(255, 200, 0));
-  }
-  .slider_item_content {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    flex: 1;
-    color: white;
-    text-align: center;
-    max-width: 500px;
-    width: 245px;
-    justify-content: center;
-  }
-  a:link{
-    text-decoration: none;
-  }
+  /* From https://css.glass */
+  background: rgba(181, 139, 106, 0.364);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.323);
+}
+.slider_item:hover {
+  flex: auto;
+  transition: 0.3s;
+  transform: scale(1.04);
+  margin: 0;
+  filter: drop-shadow(0 0 10px rgb(255, 200, 0));
+}
+.slider_item_content {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  color: white;
+  text-align: center;
+  max-width: 500px;
+  width: 245px;
+  justify-content: center;
+}
+a:link {
+  text-decoration: none;
+}
 
-.botao_cat{
+.botao_cat {
   flex-direction: row;
   gap: 2;
 }
-  .but_1{
-    gap: 2;
-  }
-  .but_2,.but_1{
-    background: none;
-    border: none;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+.but_1 {
+  gap: 2;
+}
+.but_2,
+.but_1 {
+  background: none;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
-  .slider_map{
-    display: flex;
-    gap: 2rem;
-    padding: 2rem;
-  }
+.slider_map {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}

@@ -24,7 +24,7 @@ export default function Header() {
   }) => {
     setPesquisa(suggestion.NOME);
     setShowSuggestions(false);
-    navigate(`/catalogue/${suggestion.ID}`);
+    navigate(`/colecao/${suggestion.ID}`);
   };
 
   const handlePesquisa = async () => {

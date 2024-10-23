@@ -20,6 +20,10 @@ export default function Footer() {
             <span>Sudo Comics</span>
           </p>
         </div>
+        <div className="sudo-effect">
+          <img className="sudo-text" src="..\..\images\sudoTexto.png" />
+          <img className="sudo-camel" src="..\..\images\sudo.png" alt="" />
+        </div>
         <div className="foo_right">
           <h3>Aviso Legal</h3>
           <p>
