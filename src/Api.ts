@@ -66,6 +66,17 @@ export const moduleApi = {
     }
   },
   /* Quadrinho DM */
+
+  fetchQuadrinho: async () => {
+    const response = await fetch(`http://localhost:3001/quadrinhos/`);
+    try {
+      let json = await response.json();
+      return json;
+    } catch (error) {
+      console.error("Resposta não é JSON", error);
+    }
+  },
+
   adicionarQuadrinho: async (
     EDICAO: number,
     COLECAO: string,
