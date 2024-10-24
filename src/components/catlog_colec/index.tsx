@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import CatlogComic from "../catlog_comic";
 import { Link } from "react-router-dom";
 
 export default function CatlogCollection() {
@@ -19,7 +18,7 @@ export default function CatlogCollection() {
   }, []);
 
   return (
-    <div>
+    <div className="QUADRINHOS_LISTA">
       <div className="slider_map">
         {ListaColecao.map((item) => (
           <Link to={"/colecao/" + item.ID} key={item.ID}>

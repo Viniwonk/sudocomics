@@ -15,7 +15,7 @@ export default function Home() {
       <Header />
       <div className="page_content">
         <Carousel />
-        <h1>Quadrinhos em destaque</h1>
+        <h1>Coleções em destaque</h1>
         <CatlogCollection></CatlogCollection>
         <h1>Novas HQs</h1>
         <div className="home_row">

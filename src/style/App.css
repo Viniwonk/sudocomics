@@ -1087,3 +1087,7 @@ strong {
     transform: rotate(0deg);
   }
 }
+
+.QUADRINHOS_LISTA{
+  display: flex;
+}

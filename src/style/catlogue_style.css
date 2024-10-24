@@ -85,7 +85,9 @@ a:link {
 }
 
 .slider_map {
+  width: 100vw;
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   padding: 2rem;
 }

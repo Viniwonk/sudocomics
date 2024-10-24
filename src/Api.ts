@@ -240,10 +240,10 @@ export const moduleApi = {
     FOTO: string,
     SINOPSE: string,
     EDITORA: string
-  ) => {
-    let response = await fetch("http://localhost:3001/colecao", {
-      method: "POST",
-      body: JSON.stringify({
+    ) => {
+      let response = await fetch("http://localhost:3001/colecao", {
+        method: "POST",
+        body: JSON.stringify({
         NOME,
         LANCAMENTO,
         FOTO,
@@ -256,7 +256,22 @@ export const moduleApi = {
     console.log(json);
     return json;
   },
+  // Coleção
 
+  fetchColecao: async (id: string) => {
+    try {
+      const response = await fetch(`http://localhost:3001/colecao/ID-${id}`); // Ajuste a URL conforme necessário
+      if (!response.ok) {
+        throw new Error("Erro ao buscar coleção");
+      }
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Erro:", error);
+      throw error;
+    }
+  },
+  
   // Editora
 
   fetchColecoesPorEditora: async (nomeEditora: string) => {
@@ -286,21 +301,6 @@ export const moduleApi = {
     return data;
   },
 
-  // Coleção
-
-  fetchColecao: async (id: string) => {
-    try {
-      const response = await fetch(`http://localhost:3001/colecao/${id}`); // Ajuste a URL conforme necessário
-      if (!response.ok) {
-        throw new Error("Erro ao buscar coleção");
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Erro:", error);
-      throw error;
-    }
-  },
 };
 //   fetchSuggestions: async (url: string, term: string) => {
 //     try {
