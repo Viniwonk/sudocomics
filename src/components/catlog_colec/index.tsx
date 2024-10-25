@@ -38,8 +38,8 @@ export default function CatlogCollection({ numStart, numStop }: Props) {
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         loop={true}
-        spaceBetween={50}
-        speed={3000}
+        spaceBetween={5}
+        speed={850}
         slidesPerView={4}
         centeredSlides={true}
         navigation

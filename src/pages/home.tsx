@@ -20,10 +20,10 @@ export default function Home() {
       <div className="page_content">
         <Carousel />
         <h1>Coleções em destaque</h1>
-        <CatlogCollection numStart={0} numStop={5}></CatlogCollection>
+        <CatlogCollection numStart={0} numStop={6}></CatlogCollection>
         <Tape motion={false}></Tape>
         <h1>Novas HQs</h1>
-        <CatlogCollection numStart={5} numStop={9}></CatlogCollection>
+        <CatlogCollection numStart={0} numStop={12}></CatlogCollection>
         <ul>
           <h1>
             <Link to="/catalogue">
