@@ -13,16 +13,11 @@ const CadastroQuadrinhos = () => {
   const [lancamento, setLancamento] = useState("");
   const [autor, setAutor] = useState("");
 
-
   const [pesquisa, setPesquisa] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const handleSelectedSuggestion = (suggestion: {
-    ID: string;
-    NOME: string;
-  }) => {
-    setPesquisa(suggestion.NOME);
-    setShowSuggestions(false);
+  const handleSelectColecao = (suggestion: { ID: string; NOME: string }) => {
+    setColecao(suggestion.NOME);
   };
 
   const handleSelectAutor = (suggestion: { ID: string; NOME: string }) => {
@@ -64,11 +59,11 @@ const CadastroQuadrinhos = () => {
     <form className="conteudo-cad-geral">
       <h1>Cadastro de quadrinho</h1>
       <InputBar
-          url="http://localhost:3001/colecao/resultados-de-busca"
-          onSelect={handleSelectedSuggestion}
-          placeholder="Pesquisar"
-          onChange={setPesquisa}
-        />
+        url="http://localhost:3001/colecao/resultados-de-busca"
+        onSelect={handleSelectColecao}
+        placeholder="Pesquisar"
+        onChange={setPesquisa}
+      />
 
       <div className="input-wrapper" style={{ position: "relative" }}>
         <input
