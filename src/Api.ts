@@ -87,6 +87,24 @@ export const moduleApi = {
     UPLOADED_BY: string,
     AUTOR: string
   ) => {
+    console.log(
+      "EDICAO",
+      EDICAO,
+      "COLECAO",
+      COLECAO,
+      "LANCAMENTO",
+      LANCAMENTO,
+      "IMAGEM_CAPA",
+      IMAGEM_CAPA,
+      "SINOPSE",
+      SINOPSE,
+      "EDITORA",
+      EDITORA,
+      "UPLOADED_BY",
+      UPLOADED_BY,
+      "AUTOR",
+      AUTOR
+    );
     let response = await fetch("http://localhost:3001/quadrinhos", {
       method: "POST",
       body: JSON.stringify({
@@ -240,10 +258,10 @@ export const moduleApi = {
     FOTO: string,
     SINOPSE: string,
     EDITORA: string
-    ) => {
-      let response = await fetch("http://localhost:3001/colecao", {
-        method: "POST",
-        body: JSON.stringify({
+  ) => {
+    let response = await fetch("http://localhost:3001/colecao", {
+      method: "POST",
+      body: JSON.stringify({
         NOME,
         LANCAMENTO,
         FOTO,
@@ -271,7 +289,7 @@ export const moduleApi = {
       throw error;
     }
   },
-  
+
   // Editora
 
   fetchColecoesPorEditora: async (nomeEditora: string) => {
@@ -300,7 +318,6 @@ export const moduleApi = {
     const data = await response.json();
     return data;
   },
-
 };
 //   fetchSuggestions: async (url: string, term: string) => {
 //     try {
