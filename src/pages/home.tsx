@@ -1,6 +1,7 @@
 // import packages
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 // import components
 import Header from "../components/header/header";
@@ -12,6 +13,9 @@ import CatlogCollection from "../components/catlog_colec";
 export default function Home() {
   return (
     <div>
+      <Helmet>
+        <title>Sudocomics | Home</title>
+      </Helmet>
       <Header />
       <div className="page_content">
         <Carousel />

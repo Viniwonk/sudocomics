@@ -166,3 +166,10 @@ a:link {
 .swiper-button-prev {
   left: 10px; /* Ajuste conforme necessário */
 }
+.map {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}

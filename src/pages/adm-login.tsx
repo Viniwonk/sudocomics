@@ -5,6 +5,7 @@ import "../style/App.css";
 import { useState } from "react";
 import { moduleApi } from "../Api";
 import { useAuth } from "../components/contexts/authContext";
+import { Helmet } from "react-helmet";
 
 export default function AdmLogin() {
   // ** LOGIN DO ADM **
@@ -112,6 +113,9 @@ export default function AdmLogin() {
               <div
                 className={`form-login ${!isVisible ? "fade-out" : "fade-in"}`}
               >
+                <Helmet>
+                  <title>Sudocomics | Login</title>
+                </Helmet>
                 <h1 className="title-login">ADM Login</h1>
                 <input
                   className="text-bar-login"
@@ -135,6 +139,9 @@ export default function AdmLogin() {
                   !isVisible ? "fade-in" : "fade-out"
                 }`}
               >
+                <Helmet>
+                  <title>Sudocomics | Cadastro</title>
+                </Helmet>
                 <form onSubmit={submitHandler}>
                   <h1>Cadastro de ADM</h1>
                   <p>Usuário</p>

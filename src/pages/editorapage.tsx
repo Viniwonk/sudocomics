@@ -4,6 +4,7 @@ import { moduleApi } from "../Api";
 import Header from "../components/header/header";
 import Footer from "../components/footer";
 import Colecao from "./colecao";
+import { Helmet } from "react-helmet";
 interface Editora {
   ID: string;
   NOME: string;
@@ -46,6 +47,9 @@ export default function Editorapage() {
 
   return (
     <div className="background">
+      <Helmet>
+        <title>{`Sudocomics | ${editora?.NOME}`}</title>
+      </Helmet>
       <Header />
       <div className="blur-layer"></div>
       <div className="content-layer">

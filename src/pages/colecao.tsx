@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import Footer from "../components/footer";
 import Header from "../components/header/header";
 import { moduleApi } from "../Api";
+import { Helmet } from "react-helmet";
 
 export default function Colecao() {
   interface Colecao {
@@ -60,6 +61,9 @@ export default function Colecao() {
 
   return (
     <div className="background">
+      <Helmet>
+        <title>{`Sudocomics | ${colecao?.NOME}`}</title>
+      </Helmet>
       <Header />
       <div className="blur-layer"></div>
       <div className="content-layer">
@@ -80,8 +84,7 @@ export default function Colecao() {
             {/* Box de informações */}
             <div className="info-box">
               <div className="logo">
-
-            <Link to={`/editorapage/${colecao?.editora.NOME}`}>
+                <Link to={`/editorapage/${colecao?.editora.NOME}`}>
                   <img height={100} src={colecao?.editora.LOGO} alt="" />
                 </Link>
               </div>

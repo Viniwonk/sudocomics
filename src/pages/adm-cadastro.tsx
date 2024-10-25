@@ -3,6 +3,7 @@ import Footer from "../components/footer";
 import { Link } from "react-router-dom";
 import React from "react";
 import { moduleApi } from "../Api";
+import { Helmet } from "react-helmet";
 
 export default function AdmCadastro() {
   // **API**
@@ -36,6 +37,9 @@ export default function AdmCadastro() {
 
   return (
     <div>
+      <Helmet>
+        <title>Sudocomics | Cadastro de Catálogo</title>
+      </Helmet>
       <Header></Header>
       <div className="cadastro-wrapper">
         <div className="cadastro-box">

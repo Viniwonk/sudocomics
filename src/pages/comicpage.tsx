@@ -5,6 +5,7 @@ import "../style/App.css";
 import { useEffect, useState } from "react";
 import { moduleApi } from "../Api";
 import Editorapage from "./editorapage";
+import { Helmet } from "react-helmet";
 
 interface Quad {
   ID: string;
@@ -42,6 +43,9 @@ export default function QuadrinhosPage() {
 
   return (
     <div className="background">
+      <Helmet>
+        <title>{`Sudocomics | ${listaQuadrinho?.colecao.NOME} #${listaQuadrinho?.EDICAO}`}</title>
+      </Helmet>
       <Header />
       <div className="blur-layer"></div>
       <div className="content-layer">
@@ -63,8 +67,7 @@ export default function QuadrinhosPage() {
             </div>
             {/* Box de informações */}
             <div className="info-box">
-              <div className="logo">
-              </div>
+              <div className="logo"></div>
               <h3>Informações</h3>
               <p>
                 <strong>Data de Lançamento:</strong>{" "}

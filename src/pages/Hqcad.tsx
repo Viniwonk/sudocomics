@@ -10,6 +10,7 @@ import CadastroColecao from "../components/postInputs/Colecao";
 import CadastroAutor from "../components/postInputs/Autor";
 import CadastroEditora from "../components/postInputs/Editora";
 import { useAuth } from "../components/contexts/authContext";
+import { Helmet } from "react-helmet";
 
 interface Suggestion {
   ID: string;
@@ -20,6 +21,9 @@ export default function CadHq() {
   const { isLogged } = useAuth();
   return (
     <div>
+      <Helmet>
+        <title>{`Sudocomics | Cadastro de Catálogo`}</title>
+      </Helmet>
       <Header />
       {isLogged ? (
         <div className="container-cadastro-geral">

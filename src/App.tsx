@@ -18,6 +18,7 @@ import SearchResults from "./pages/resultado";
 import Header from "./components/header/header";
 import Footer from "./components/footer";
 import Colecao from "./pages/colecao";
+import { useEffect } from "react";
 
 // Componente para página 404
 const NotFound = () => {
