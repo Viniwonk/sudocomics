@@ -1,13 +1,29 @@
+import "swiper/css/bundle";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
+import {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+  Autoplay,
+} from "swiper/modules";
+import "../../style/catlogue_style.css";
 
-export default function CatlogCollection() {
+interface Props {
+  numStart: number;
+  numStop: number;
+}
+
+export default function CatlogCollection({ numStart, numStop }: Props) {
   interface Item {
     ID: string;
     NOME: string;
     FOTO: string;
   }
 
+  const [activeIndex, setActiveIndex] = useState(0);
   const [ListaColecao, setListaColecao] = useState<Item[]>([]);
 
   useEffect(() => {
@@ -19,16 +35,43 @@ export default function CatlogCollection() {
 
   return (
     <div className="QUADRINHOS_LISTA">
-      <div className="slider_map">
-        {ListaColecao.map((item) => (
-          <Link to={"/colecao/" + item.ID} key={item.ID}>
-            <div className="slider_item">
-              <img src={item.FOTO} height={235} alt="placeholder" />
-              <div className="slider_item_content">{item.NOME}</div>
-            </div>
-          </Link>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+        loop={true}
+        spaceBetween={50}
+        speed={3000}
+        slidesPerView={4}
+        centeredSlides={true}
+        navigation
+        autoplay={{ delay: 3000 }}
+        slideToClickedSlide={true}
+        pagination={{
+          clickable: true,
+          bulletClass: "swiper-pagination-bullet",
+          bulletActiveClass: "swiper-pagination-bullet-active",
+        }}
+        onSlideChange={(swiper: SwiperClass) => {
+          console.log(swiper);
+          setActiveIndex(swiper.activeIndex);
+        }}
+        onSwiper={(swiper: SwiperClass) => console.log(swiper)}
+      >
+        {ListaColecao.slice(numStart, numStop).map((item, index) => (
+          <SwiperSlide
+            key={item.ID}
+            className={`swiper-slide ${
+              index === activeIndex ? "active-slide" : ""
+            }`}
+          >
+            <Link to={"/colecao/" + item.ID}>
+              <div className="slider_item">
+                <img src={item.FOTO} height={235} alt="placeholder" />
+                <div className="slider_item_content">{item.NOME}</div>
+              </div>
+            </Link>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 }

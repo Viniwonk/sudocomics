@@ -29,37 +29,37 @@
 }
 .slider_item {
   padding: 18px 7px 0px 7px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: 0.3s;
   border-radius: 25px;
   min-height: 330px;
-  color: white;
   font-size: 25px;
   font-weight: "bold";
+  flex: 1 1 auto;
 
   /* From https://css.glass */
-  background: rgba(181, 139, 106, 0.364);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.822);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(0, 0, 0, 0.323);
 }
 .slider_item:hover {
-  flex: auto;
+  /* flex: auto; */
   transition: 0.3s;
-  transform: scale(1.04);
+  /* transform: scale(1.04); */
   margin: 0;
-  filter: drop-shadow(0 0 10px rgb(255, 200, 0));
+  filter: drop-shadow(0 0 10px rgb(255, 255, 255));
 }
 .slider_item_content {
   padding: 10px;
   display: flex;
   align-items: center;
   flex: 1;
-  color: white;
+  color: #2c2c2c;
   text-align: center;
   max-width: 500px;
   width: 245px;
@@ -85,11 +85,12 @@ a:link {
 }
 
 .slider_map {
-  width: 100vw;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2rem;
+  width: 100%;
+  gap: 4rem;
+  padding: 5rem;
 }
 
 .info-box {
@@ -105,4 +106,63 @@ a:link {
   flex-direction: column;
   border-radius: 25px;
   font-size: 1em;
+}
+
+.QUADRINHOS_LISTA {
+  width: 100%;
+  height: 600px;
+  max-width: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: auto;
+  transition: transform 5s;
+}
+
+.slider_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.swiper-slide-active {
+  transform: scale(1.4) !important; /* Ajuste conforme necessário */
+  transition: transform 5s;
+}
+.swiper-slide-active > a > .slider-item {
+  border: solid 3px yellow;
+}
+
+/* Bolinhas do Swiper */
+.swiper-pagination-bullet {
+  background: #2c2c2c !important; /* Cor padrão das bolinhas */
+  opacity: 1; /* Define a opacidade para garantir a visibilidade */
+}
+
+.swiper-pagination-bullet-active {
+  background: yellow !important; /* Cor das bolinhas ativas */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 50%; /* Alinha no meio do slider */
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  background: rgb(0, 0, 0); /* Cor da caixinha */
+  padding: 50px 20px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  color: yellow !important;
+}
+
+.swiper-button-next {
+  right: 10px; /* Ajuste conforme necessário */
+}
+
+.swiper-button-prev {
+  left: 10px; /* Ajuste conforme necessário */
 }

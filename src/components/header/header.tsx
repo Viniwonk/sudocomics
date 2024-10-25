@@ -59,7 +59,7 @@ export default function Header() {
           </Link>
         </div>
       </div>
-      <Tape />
+      <Tape motion={true} />
     </div>
   );
 }

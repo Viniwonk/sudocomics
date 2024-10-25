@@ -9,6 +9,7 @@ import CadastroQuadrinhos from "../components/postInputs/Quadrinhos";
 import CadastroColecao from "../components/postInputs/Colecao";
 import CadastroAutor from "../components/postInputs/Autor";
 import CadastroEditora from "../components/postInputs/Editora";
+import { useAuth } from "../components/contexts/authContext";
 
 interface Suggestion {
   ID: string;
@@ -16,35 +17,44 @@ interface Suggestion {
 }
 
 export default function CadHq() {
+  const { isLogged } = useAuth();
   return (
     <div>
       <Header />
-      <div className="container-cadastro-geral">
-        <Tabs>
-          <TabList>
-            <Tab>Quadrinho</Tab>
-            <Tab>Coleção</Tab>
-            <Tab>Autor</Tab>
-            <Tab>Editora</Tab>
-          </TabList>
+      {isLogged ? (
+        <div className="container-cadastro-geral">
+          <Tabs>
+            <TabList>
+              <Tab>Quadrinho</Tab>
+              <Tab>Coleção</Tab>
+              <Tab>Autor</Tab>
+              <Tab>Editora</Tab>
+            </TabList>
 
-          <TabPanel>
-            <CadastroQuadrinhos />
-          </TabPanel>
+            <TabPanel>
+              <CadastroQuadrinhos />
+            </TabPanel>
 
-          <TabPanel>
-            <CadastroColecao />
-          </TabPanel>
+            <TabPanel>
+              <CadastroColecao />
+            </TabPanel>
 
-          <TabPanel>
-            <CadastroAutor />
-          </TabPanel>
+            <TabPanel>
+              <CadastroAutor />
+            </TabPanel>
 
-          <TabPanel>
-            <CadastroEditora />
-          </TabPanel>
-        </Tabs>
-      </div>
+            <TabPanel>
+              <CadastroEditora />
+            </TabPanel>
+          </Tabs>
+        </div>
+      ) : (
+        <div className="page_content" style={{ height: "50vh" }}>
+          <h1 style={{ textAlign: "center", color: "white" }}>
+            Você não tem permissão para acessar essa página.
+          </h1>
+        </div>
+      )}
       <Footer />
     </div>
   );

@@ -30,7 +30,7 @@ export default function Carousel() {
           </div>
         </div>
       </div>
-      <Tape></Tape>
+      <Tape motion={false}></Tape>
     </div>
   );
 }
