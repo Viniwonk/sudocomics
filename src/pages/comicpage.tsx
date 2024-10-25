@@ -64,9 +64,6 @@ export default function QuadrinhosPage() {
             {/* Box de informações */}
             <div className="info-box">
               <div className="logo">
-                <Link to={`/editorapage/${listaQuadrinho?.editora.NOME}`}>
-                  <img width={350} src={listaQuadrinho?.editora.LOGO} alt="" />
-                </Link>
               </div>
               <h3>Informações</h3>
               <p>

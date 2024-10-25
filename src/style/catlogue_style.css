@@ -91,3 +91,18 @@ a:link {
   gap: 2rem;
   padding: 2rem;
 }
+
+.info-box {
+  gap: 1em;
+  background: #0c0c0c; /* Fundo mais escuro */
+  color: rgb(255, 255, 255); /* Texto branco para contraste */
+  padding: 30px;
+  border-radius: 40px;
+  border: 9px solid yellow; /* Margem amarela */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 50%; /* Estende a caixa de autores */
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  font-size: 1em;
+}

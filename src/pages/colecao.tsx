@@ -14,6 +14,7 @@ export default function Colecao() {
     editora: {
       ID: string;
       NOME: string;
+      LOGO: string;
     };
   }
 
@@ -78,6 +79,12 @@ export default function Colecao() {
             </div>
             {/* Box de informações */}
             <div className="info-box">
+              <div className="logo">
+
+            <Link to={`/editorapage/${colecao?.editora.NOME}`}>
+                  <img height={100} src={colecao?.editora.LOGO} alt="" />
+                </Link>
+              </div>
               <h3>Informações</h3>
               <p>
                 <strong>Editora:</strong> {colecao?.editora?.NOME}

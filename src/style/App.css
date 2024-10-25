@@ -1091,3 +1091,10 @@ strong {
 .QUADRINHOS_LISTA{
   display: flex;
 }
+
+.sudo-homenagem{
+  width: 300px;
+  top: 115px;
+  text-align: center;
+  position: absolute;
+}

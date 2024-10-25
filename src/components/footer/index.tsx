@@ -15,14 +15,11 @@ export default function Footer() {
               <h3>Sudo-Comics</h3>
             </Link>
           </div>
-          <p>
-            Leia seus quadrinhos e mangás favoritos com o{" "}
-            <span>Sudo Comics</span>
-          </p>
         </div>
         <div className="sudo-effect">
           <img className="sudo-text" src="..\..\images\sudoTexto.png" />
           <img className="sudo-camel" src="..\..\images\sudo.png" alt="" />
+            <p className="sudo-homenagem">Em homenagem a <span>Allyson</span></p>
         </div>
         <div className="foo_right">
           <h3>Aviso Legal</h3>
@@ -32,6 +29,7 @@ export default function Footer() {
             com os hosts de arquivos e provedores. <span>Sudo Comics</span> não
             é responsável por quaisquer arquivos de mídia exibidos pelos
             provedores de imagens.
+
           </p>
         </div>
       </div>

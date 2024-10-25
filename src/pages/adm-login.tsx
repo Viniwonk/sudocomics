@@ -1,6 +1,6 @@
 import Header from "../components/header/header";
 import Footer from "../components/footer";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import "../style/App.css";
 import { useState } from "react";
 import { moduleApi } from "../Api";
@@ -19,6 +19,8 @@ export default function AdmLogin() {
     setsenha(event.target.value);
   };
 
+  const navigate = useNavigate()
+
   // **API**
 
   const admLogin = async () => {
@@ -27,6 +29,7 @@ export default function AdmLogin() {
 
       if (json.success) {
         alert("Login Efetuado");
+        navigate("/cadHQ")
       } else {
         alert("Falha ao fazer o login, tente novamente");
       }
