@@ -14,7 +14,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   const sugestoes = useFetchSuggestions(
-    "http://localhost:3001/colecao/resultados-de-busca",
+    "https://sudocomics.onrender.com/colecao/resultados-de-busca",
     pesquisa
   );
 
@@ -46,7 +46,7 @@ export default function Header() {
           </Link>
         </div>
         <InputBar
-          url="http://localhost:3001/colecao/resultados-de-busca"
+          url="https://sudocomics.onrender.com/colecao/resultados-de-busca"
           onSelect={handleSelectedSuggestion}
           placeholder="Pesquisar"
           onChange={setPesquisa}

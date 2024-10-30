@@ -27,7 +27,7 @@ export default function CatlogCollection({ numStart, numStop }: Props) {
   const [ListaColecao, setListaColecao] = useState<Item[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/colecao")
+    fetch("https://sudocomics.onrender.com/colecao")
       .then((response) => response.json())
       .then((data) => setListaColecao(data))
       .catch((error) => console.error("Erro:", error));

@@ -81,7 +81,7 @@ export default function CadastroColecao() {
       </div>
 
       <InputBar
-        url="http://localhost:3001/editora/resultados-de-busca"
+        url="https://sudocomics.onrender.com/editora/resultados-de-busca"
         onSelect={handleSelectEditora}
         onChange={setEditoraColecao}
         placeholder="Editora"

@@ -2,7 +2,7 @@ export const moduleApi = {
   /* Pesquisa ID */
   pesquisaID: async (nome: string) => {
     let response = await fetch(
-      `http://localhost:3001/quadrinhos/resultados-de-busca?nome=${nome}`
+      `https://sudocomics.onrender.com/quadrinhos/resultados-de-busca?nome=${nome}`
     );
     try {
       let json = await response.json();
@@ -13,7 +13,7 @@ export const moduleApi = {
   },
   pesquisaAdmin: async (nome: string) => {
     let response = await fetch(
-      `http://localhost:3001/admin/resultados-de-busca?nome=${nome}`
+      `https://sudocomics.onrender.com/admin/resultados-de-busca?nome=${nome}`
     );
     try {
       let json = await response.json();
@@ -24,7 +24,7 @@ export const moduleApi = {
   },
   pesquisaAutor: async (nome: string) => {
     let response = await fetch(
-      `http://localhost:3001/autor/resultados-de-busca?nome=${nome}`
+      `https://sudocomics.onrender.com/autor/resultados-de-busca?nome=${nome}`
     );
     try {
       let json = await response.json();
@@ -37,7 +37,7 @@ export const moduleApi = {
   pesquisaColecao: async (term: string) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/colecao/resultados-de-busca?nome=${term}`,
+        `https://sudocomics.onrender.com/colecao/resultados-de-busca?nome=${term}`,
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
@@ -68,7 +68,9 @@ export const moduleApi = {
   /* Quadrinho DM */
 
   fetchQuadrinho: async (id: string) => {
-    const response = await fetch(`http://localhost:3001/quadrinhos/${id}`);
+    const response = await fetch(
+      `https://sudocomics.onrender.com/quadrinhos/${id}`
+    );
     try {
       let json = await response.json();
       return json;
@@ -105,7 +107,7 @@ export const moduleApi = {
       "AUTOR",
       AUTOR
     );
-    let response = await fetch("http://localhost:3001/quadrinhos", {
+    let response = await fetch("https://sudocomics.onrender.com/quadrinhos", {
       method: "POST",
       body: JSON.stringify({
         EDICAO,
@@ -155,7 +157,7 @@ export const moduleApi = {
 
   /*Editora DM*/
   adcionarEditora: async (NOME: string, LOGO: string) => {
-    let response = await fetch("http://localhost:3001/editora", {
+    let response = await fetch("https://sudocomics.onrender.com/editora", {
       method: "POST",
       body: JSON.stringify({
         NOME,
@@ -190,7 +192,7 @@ export const moduleApi = {
 
   /*Autor DM*/
   adcionarAutor: async (NOME: string, FOTO: string) => {
-    let response = await fetch("http://localhost:3001/autor", {
+    let response = await fetch("https://sudocomics.onrender.com/autor", {
       method: "POST",
       body: JSON.stringify({
         NOME,
@@ -224,7 +226,7 @@ export const moduleApi = {
 
   /*Admin DM*/
   adcionarAdmin: async (NOME: string, EMAIL: string, SENHA: string) => {
-    let response = await fetch("http://localhost:3001/admin", {
+    let response = await fetch("https://sudocomics.onrender.com/admin", {
       method: "POST",
       body: JSON.stringify({
         NOME,
@@ -239,7 +241,7 @@ export const moduleApi = {
   },
 
   loginAdmin: async (EMAIL: string, SENHA: string) => {
-    let response = await fetch("http://localhost:3001/admin/login", {
+    let response = await fetch("https://sudocomics.onrender.com/admin/login", {
       method: "POST",
       body: JSON.stringify({
         EMAIL,
@@ -259,7 +261,7 @@ export const moduleApi = {
     SINOPSE: string,
     EDITORA: string
   ) => {
-    let response = await fetch("http://localhost:3001/colecao", {
+    let response = await fetch("https://sudocomics.onrender.com/colecao", {
       method: "POST",
       body: JSON.stringify({
         NOME,
@@ -278,7 +280,9 @@ export const moduleApi = {
 
   fetchColecao: async (id: string) => {
     try {
-      const response = await fetch(`http://localhost:3001/colecao/ID-${id}`); // Ajuste a URL conforme necessário
+      const response = await fetch(
+        `https://sudocomics.onrender.com/colecao/ID-${id}`
+      ); // Ajuste a URL conforme necessário
       if (!response.ok) {
         throw new Error("Erro ao buscar coleção");
       }
@@ -294,14 +298,16 @@ export const moduleApi = {
 
   fetchColecoesPorEditora: async (nomeEditora: string) => {
     const response = await fetch(
-      `http://localhost:3001/colecao/editora/${nomeEditora}`
+      `https://sudocomics.onrender.com/colecao/editora/${nomeEditora}`
     );
     const data = await response.json();
     return data;
   },
 
   fetchEditora: async (id: string) => {
-    const response = await fetch(`http://localhost:3001/editora/ID-${id}`);
+    const response = await fetch(
+      `https://sudocomics.onrender.com/editora/ID-${id}`
+    );
     try {
       let json = await response.json();
       return json;
@@ -313,7 +319,7 @@ export const moduleApi = {
 
   fetchQuadrinhoByColecao: async (colecaoName: string) => {
     const response = await fetch(
-      `http://localhost:3001/quadrinhos/colecao/${colecaoName}`
+      `https://sudocomics.onrender.com/quadrinhos/colecao/${colecaoName}`
     );
     const data = await response.json();
     return data;

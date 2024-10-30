@@ -59,7 +59,7 @@ const CadastroQuadrinhos = () => {
     <form className="conteudo-cad-geral">
       <h1>Cadastro de quadrinho</h1>
       <InputBar
-        url="http://localhost:3001/colecao/resultados-de-busca"
+        url="https://sudocomics.onrender.com/colecao/resultados-de-busca"
         onSelect={handleSelectColecao}
         placeholder="Pesquisar"
         onChange={setPesquisa}
@@ -83,13 +83,13 @@ const CadastroQuadrinhos = () => {
       </div>
 
       <InputBar
-        url="http://localhost:3001/autor/resultados-de-busca"
+        url="https://sudocomics.onrender.com/autor/resultados-de-busca"
         onSelect={handleSelectAutor}
         onChange={setAutor}
         placeholder="Autor"
       />
       <InputBar
-        url="http://localhost:3001/editora/resultados-de-busca"
+        url="https://sudocomics.onrender.com/editora/resultados-de-busca"
         onSelect={handleSelectEditora}
         onChange={setEditora}
         placeholder="Editora"
@@ -113,7 +113,7 @@ const CadastroQuadrinhos = () => {
         />
       </div>
       <InputBar
-        url="http://localhost:3001/admin/resultados-de-busca"
+        url="https://sudocomics.onrender.com/admin/resultados-de-busca"
         onSelect={handleSelectUsuario}
         onChange={setUsuario}
         placeholder="Usuário"
