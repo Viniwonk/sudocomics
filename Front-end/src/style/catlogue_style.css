@@ -1,0 +1,175 @@
+.catlog_page {
+  height: 100%;
+  display: flex;
+}
+
+.catlog_content {
+  display: flex;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(black, rgba(7, 1, 98, 0.491));
+  /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
+  backdrop-filter: blur(4.1px);
+  /* -webkit-backdrop-filter: blur(4.1px); */
+}
+.colecao_row {
+  display: flex;
+  flex-direction: row;
+}
+.slider_colecao {
+  gap: 1rem;
+  display: flex;
+  overflow: visible;
+  flex-direction: row;
+  margin: 10px 0;
+  border-radius: 10%;
+}
+.slider_item {
+  padding: 18px 7px 0px 7px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s;
+  border-radius: 25px;
+  min-height: 330px;
+  font-size: 25px;
+  font-weight: "bold";
+  flex: 1 1 auto;
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.822);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.323);
+}
+.slider_item:hover {
+  /* flex: auto; */
+  transition: 0.3s;
+  /* transform: scale(1.04); */
+  margin: 0;
+  filter: drop-shadow(0 0 10px rgb(255, 255, 255));
+}
+.slider_item_content {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  color: #2c2c2c;
+  text-align: center;
+  max-width: 500px;
+  width: 245px;
+  justify-content: center;
+}
+a:link {
+  text-decoration: none;
+}
+
+.botao_cat {
+  flex-direction: row;
+  gap: 2;
+}
+.but_1 {
+  gap: 2;
+}
+.but_2,
+.but_1 {
+  background: none;
+  border: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.slider_map {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 4rem;
+  padding: 5rem;
+}
+
+.info-box {
+  gap: 1em;
+  background: #0c0c0c; /* Fundo mais escuro */
+  color: rgb(255, 255, 255); /* Texto branco para contraste */
+  padding: 30px;
+  border-radius: 40px;
+  border: 9px solid yellow; /* Margem amarela */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 50%; /* Estende a caixa de autores */
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  font-size: 1em;
+}
+
+.QUADRINHOS_LISTA {
+  width: 100%;
+  height: 600px;
+  max-width: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: auto;
+  transition: transform 5s;
+}
+
+.slider_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.swiper-slide-active {
+  transform: scale(1.4) !important; /* Ajuste conforme necessário */
+  transition: transform 5s;
+}
+.swiper-slide-active > a > .slider-item {
+  border: solid 3px yellow;
+}
+
+/* Bolinhas do Swiper */
+.swiper-pagination-bullet {
+  background: #2c2c2c !important; /* Cor padrão das bolinhas */
+  opacity: 1; /* Define a opacidade para garantir a visibilidade */
+}
+
+.swiper-pagination-bullet-active {
+  background: yellow !important; /* Cor das bolinhas ativas */
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  position: absolute;
+  top: 50%; /* Alinha no meio do slider */
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  background: rgb(0, 0, 0); /* Cor da caixinha */
+  padding: 50px 20px; /* Espaçamento interno */
+  border-radius: 5px; /* Bordas arredondadas */
+  color: yellow !important;
+}
+
+.swiper-button-next {
+  right: 10px; /* Ajuste conforme necessário */
+}
+
+.swiper-button-prev {
+  left: 10px; /* Ajuste conforme necessário */
+}
+.map {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
