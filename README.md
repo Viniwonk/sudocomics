@@ -101,9 +101,9 @@ Siga os passos abaixo para configurar o projeto localmente:
 ## 👥 Integrantes do Projeto
   **Viniwonk**
   
-  **VinnieMoth**
+  **VinnieMoth** (https://github.com/vinniemoth)
   
-  **Pedro**
+  **Pedro** (https://github.com/phestevam2202)
   
   **Enrique**
   
