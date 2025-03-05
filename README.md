@@ -104,7 +104,5 @@ Siga os passos abaixo para configurar o projeto localmente:
   **VinnieMoth** (https://github.com/vinniemoth)
   
   **Pedro** (https://github.com/phestevam2202)
-  
-  **Enrique**
-  
+    
   **Allyson Henrique**
